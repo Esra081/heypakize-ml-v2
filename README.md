@@ -1,18 +1,21 @@
-# 🤖 HeyPakize — Computer Vision ML Pipeline (v2)
+# 🎙️ HeyPakize — Wake Word Detection System
 
-Bilgisayarlı görü alanında geliştirilmiş makine öğrenmesi pipeline projesi. Veri temizleme, özellik çıkarma, model eğitimi ve canlı çıkarım adımlarını içerir.
+"Hey Pakize" sesli uyandırma kelimesi (wake word) tespit sistemi. Tıpkı "Hey Siri", "Hey Google" veya "Hey Toyota" gibi çalışır — mikrofonu dinler ve "Hey Pakize" denildiğinde sistemi uyandırır.
 
-## 📁 Proje Yapısı
+## 🚀 Nasıl Çalışır?
 
-```
-scripts/
-├── data_cleaning.py      # Ham veriyi temizleme ve ön işleme
-├── feature_ext.py        # Özellik çıkarma (feature extraction)
-├── model_training.py     # Model eğitimi
-└── live.py               # Gerçek zamanlı çıkarım (inference)
-```
+1. **Veri Temizleme** (`data_cleaning.py`): Ses kayıtları temizlenir ve standart formata getirilir
+2. **Özellik Çıkarma** (`feature_ext.py`): MFCC ve diğer ses özellikleri çıkarılır
+3. **Model Eğitimi** (`model_training.py`): Wake word sınıflandırma modeli eğitilir
+4. **Canlı Algılama** (`live.py`): Mikrofonu gerçek zamanlı dinler, "Hey Pakize" kelimesini tanır
 
-## 🚀 Kullanım
+## 🎯 Proje Amacı
+
+Özel bir wake word sistemi oluşturmak:
+- "Hey Pakize" → sistem uyandırılır ✅
+- Diğer sesler → sistem uyumaya devam eder ❌
+
+## 🛠️ Kurulum
 
 ```bash
 pip install -r requirements.txt
@@ -21,11 +24,14 @@ pip install -r requirements.txt
 python scripts/data_cleaning.py
 python scripts/feature_ext.py
 python scripts/model_training.py
+
+# Gerçek zamanlı dinleme:
 python scripts/live.py
 ```
 
 ## 🔧 Teknolojiler
 
-- Python, OpenCV
-- Scikit-learn / PyTorch
-- NumPy, Pandas
+- Python
+- Librosa / PyAudio (ses işleme)
+- Scikit-learn / TensorFlow (sınıflandırma)
+- MFCC (Mel-Frequency Cepstral Coefficients)
